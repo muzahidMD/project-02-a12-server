@@ -29,8 +29,8 @@ run().catch(console.dir);
 
 app.get('/', (req, res) => {
     res.send('Hello to Baker Uncle!')
-})
+});
 
 app.listen(port, () => {
     console.log(`Baker Uncle listening on port ${port}`)
-})
+});
