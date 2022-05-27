@@ -29,11 +29,18 @@ async function run() {
             res.send(product);
         });
 
+        app.get('/orders', async (req, res) => {
+            const email = req.query.email;
+            const query = { email: email };
+            const orders = await orderCollection.find(query).toArray();
+            res.send(orders);
+        });
+
         app.post('/orders', async (req, res) => {
             const orders = req.body;
             const result = await orderCollection.insertOne(orders);
             res.send(result);
-        })
+        });
     }
     finally { }
 }
