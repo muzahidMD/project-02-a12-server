@@ -102,7 +102,7 @@ async function run() {
                 $set: user,
             }
             const result = await userCollection.updateOne(filter, updateDoc, options);
-            const token = jwt.sign({ email: email }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' });
+            const token = jwt.sign({ email: email }, 'ef371bcf50c7b354b4604549292283ffbc220986b99cac51f4e36885322a4899ff05474fc9cfcb75642c5b549b63e22c90f34680eaa55582b7c4f9b8282541a7', { expiresIn: '1h' });
             res.send({ result, token });
         });
 
